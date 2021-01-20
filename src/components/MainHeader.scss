@@ -1,0 +1,19 @@
+@import "../variables.scss";
+
+.MainHeader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $headerHeight;
+    padding: 0 0.5em;
+    &__title{
+        margin: 0;
+        font-size: 1em;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+}

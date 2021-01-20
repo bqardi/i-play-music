@@ -1,0 +1,12 @@
+@import "../variables.scss";
+
+.MainTitle{
+    margin: 0;
+    &__gradient{
+        font-size: 1.5em;
+        background-image: $gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
