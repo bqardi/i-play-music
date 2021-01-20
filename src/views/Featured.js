@@ -1,10 +1,27 @@
+import CardFadedBottom from "../components/CardFadedBottom";
 import MainTitle from "../components/MainTitle";
+import MainHeader from '../components/MainHeader';
 import "./Featured.scss";
 
 function Featured(){
     return (
         <section className="Featured">
+            <MainHeader title="Featured"/>
             <MainTitle title="Featured"/>
+            <div className="Featured__cards">
+                <CardFadedBottom src="./images/the-greatest-showman.jpg">
+                    <div className="Featured__content">
+                        <h3 className="Featured__title">The Greatest Showman</h3>
+                        <p className="Featured__text">Soundtrack</p>
+                    </div>
+                </CardFadedBottom>
+                <CardFadedBottom src="./images/scary-girl.jpg">
+                    <div className="Featured__content">
+                        <h3 className="Featured__title">Scary Girl</h3>
+                        <p className="Featured__text">Soundtrack</p>
+                    </div>
+                </CardFadedBottom>
+            </div>
         </section>
     );
 }

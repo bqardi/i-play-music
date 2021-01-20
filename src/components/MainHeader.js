@@ -1,12 +1,12 @@
 import IconLink from "./IconLink";
 import "./MainHeader.scss";
 
-function MainHeader(){
+function MainHeader({ title }){
     return (
         <header className="MainHeader">
-            <IconLink to="/" src="./images/icons/chevron-left.svg" alt="Back"/>
-            <h1 className="MainHeader__title">Categories</h1>
-            <IconLink src="./images/icons/magnify.svg" alt="Search"/>
+            <IconLink to="/" src="./images/icons/chevron-left.svg" title="Back"/>
+            <h1 className="MainHeader__title">{title}</h1>
+            <IconLink src="./images/icons/magnify.svg" title="Search"/>
         </header>
     );
 }

@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 .MainTitle{
-    margin: 0;
+    margin: 0 0 1em;
     &__gradient{
         font-size: 1.5em;
         background-image: $gradient;
