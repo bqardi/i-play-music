@@ -24,3 +24,5 @@ yarn-error.log*
 
 # my own
 /project-files
+.eslintcache
+.vscode
