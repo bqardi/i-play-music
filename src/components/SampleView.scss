@@ -1,0 +1,19 @@
+@import "../variables.scss";
+
+.SampleView{
+    margin-bottom: 1em;
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 3em;
+    }
+    &__title{
+        margin: 0;
+        font-size: 1em;
+    }
+    &__link{
+        color: $primary;
+        text-decoration: none;
+    }
+}

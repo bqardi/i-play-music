@@ -1,0 +1,29 @@
+@import "../variables.scss";
+
+.Slider{
+    $cutoffCompensation: 20px;
+    position: relative;
+    left: -$mainPadding;
+    right: -$mainPadding;
+    width: calc(100% + #{$mainPadding * 2});
+    overflow-y: hidden;
+    margin-top: -$cutoffCompensation;
+    margin-bottom: -$cutoffCompensation;
+    &__scrollBarHide{
+        padding-top: $cutoffCompensation;
+        overflow-x: auto;
+        margin-bottom: -50px;
+        padding-bottom: 50px + $cutoffCompensation;
+    }
+    &__container{
+        $cellSize: 130px;
+        $sliderGap: 1em;
+        height: $cellSize;
+        display: grid;
+        grid-template-columns: $mainPadding - $sliderGap repeat(var(--slider-total), $cellSize) $mainPadding - $sliderGap;
+        grid-template-rows: $cellSize;
+        gap: $sliderGap;
+        &::before{content: "";}
+        &::after{content: "";}
+    }
+}
