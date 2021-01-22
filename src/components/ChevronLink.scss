@@ -1,0 +1,21 @@
+@import "../variables.scss";
+
+.ChevronLink{
+    text-decoration: none;
+    color: var(--secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: 300;
+    height: 35px;
+    padding: 0 1.5em;
+    &:hover{
+        background-color: lighten($primary, 44);
+    }
+    &__icon{
+        width: 24px;
+        height: 24px;
+        fill: var(--secondary);
+    }
+}
