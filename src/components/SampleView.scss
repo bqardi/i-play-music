@@ -6,11 +6,12 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        height: 3em;
+        height: 2.5em;
     }
     &__title{
         margin: 0;
         font-size: 1em;
+        color: var(--secondary);
     }
     &__link{
         color: var(--primary);

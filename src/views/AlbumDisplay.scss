@@ -1,0 +1,57 @@
+@import "../variables.scss";
+
+.AlbumDisplay{
+    $imageHeight: 400px;
+    color: white;
+    height: $imageHeight - $headerHeight;
+    &--black{
+        color: black;
+    }
+    &__image{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: $imageHeight;
+        object-fit: cover;
+        object-position: top;
+    }
+    &__content{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: $mainPadding;
+        box-sizing: border-box;
+    }
+    &__description{
+        font-size: 0.9em;
+        font-weight: 300;
+    }
+    &__genre{
+        display: inline-block;
+        background-color: var(--primary);
+        border-radius: 1.5em;
+        padding: 0.6em 1.2em;
+        font-size: 0.9em;
+        font-weight: 500;
+        margin-right: 0.65em;
+        margin-bottom: 0.65em;
+        text-decoration: none;
+        color: white;
+    }
+    &__scroll{
+        position: absolute;
+        top: $imageHeight;
+        left: 0;
+        right: 0;
+        bottom: $mainNavHeight;
+        padding: 2em $mainPadding 0;
+        overflow-y: auto;
+    }
+    &__card{
+        margin-bottom: 0.5em;
+        padding: 0.5em;
+    }
+}
