@@ -8,10 +8,13 @@
     width: 100%;
     height: $mainNavHeight;
     background-color: white;
+    display: flex;
+    justify-content: center;
     &__container{
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        width: 100%;
         max-width: 500px;
         height: 100%;
     }

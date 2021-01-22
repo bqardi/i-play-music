@@ -1,0 +1,34 @@
+@import "../variables.scss";
+
+.CardMini{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: $secondary;
+    &__image{
+        border-radius: 5px;
+        width: 56px;
+        height: 56px;
+        object-fit: cover;
+        object-position: 50% 0;
+        margin-right: 1em;
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    &__title{
+        margin: 0;
+        font-size: 1em;
+        margin-bottom: 0.3em;
+    }
+    &__description{
+        margin: 0;
+        font-size: 0.8em;
+    }
+    &__additional{
+        font-size: 0.8em;
+    }
+}
