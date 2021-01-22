@@ -11,7 +11,7 @@ function Categories(){
             content: [
                 {
                     title: "Something",
-                    to: "/",
+                    to: "/album/123",
                 },
             ]
         },
@@ -20,15 +20,15 @@ function Categories(){
             content: [
                 {
                     title: "Acoustic Blues",
-                    to: "/",
+                    to: "/album/124",
                 },
                 {
                     title: "Blues Rock",
-                    to: "/",
+                    to: "/album/125",
                 },
                 {
                     title: "Canadian Blues",
-                    to: "/",
+                    to: "/album/126",
                 },
             ]
         },
@@ -37,7 +37,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/127",
                 },
             ]
         },
@@ -46,7 +46,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/128",
                 },
             ]
         },
@@ -55,7 +55,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/129",
                 },
             ]
         },
@@ -64,7 +64,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/130",
                 },
             ]
         },
@@ -73,7 +73,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/131",
                 },
             ]
         },
@@ -82,7 +82,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/132",
                 },
             ]
         },
@@ -91,7 +91,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/133",
                 },
             ]
         },
@@ -100,7 +100,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/134",
                 },
             ]
         },
@@ -109,7 +109,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/135",
                 },
             ]
         },
@@ -118,7 +118,7 @@ function Categories(){
             content: [
                 {
                     title: "Something else",
-                    to: "/",
+                    to: "/album/136",
                 },
             ]
         },

@@ -1,7 +1,7 @@
 import { Link } from "@reach/router";
 import "./IconLink.scss";
 
-function IconLink({ to, src, alt, modifier }){
+function IconLink({to, src, alt, modifier}){
     if (to) {
         return (
             <Link to={to} className={ `IconLink${ modifier ? " IconLink--" + modifier : "" }` }>

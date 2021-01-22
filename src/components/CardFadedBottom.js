@@ -1,13 +1,13 @@
+import { Link } from "@reach/router";
 import "./CardFadedBottom.scss";
 
-function CardFadedBottom({src, children}){
+function CardFadedBottom({to, src, children}){
     return (
-        <article className="CardFadedBottom" style={{backgroundImage: `url(${src})`}}>
-            {/* <img className="CardFadedBottom__image" src={src} alt="Something"/> */}
-            <div className="CardFadedBottom__content">
+        <Link to={to} className="CardFadedBottom" style={{backgroundImage: `url(${src})`}}>
+            <span className="CardFadedBottom__content">
                 {children}
-            </div>
-        </article>
+            </span>
+        </Link>
     );
 }
 
