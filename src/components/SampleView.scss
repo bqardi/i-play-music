@@ -13,7 +13,7 @@
         font-size: 1em;
     }
     &__link{
-        color: $primary;
+        color: var(--primary);
         text-decoration: none;
     }
 }
