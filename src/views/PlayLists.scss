@@ -1,0 +1,68 @@
+@import "../variables.scss";
+
+.PlayLists{
+    $imageHeight: 320px;
+    $buttonHeight: 100px;
+    color: white;
+    &__image{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        width: 100%;
+        height: $imageHeight;
+        margin-bottom: 1em;
+    }
+    &__title{
+        color: black;
+        margin: 0 auto;
+        text-align: center;
+    }
+    &__songs{
+        position: absolute;
+        top: $imageHeight + 50px;
+        left: 0;
+        right: 0;
+        bottom: $mainNavHeight + $buttonHeight;
+        padding: 0 $mainPadding;
+        overflow-y: auto;
+    }
+    &__card{
+        margin-bottom: 1em;
+    }
+    &__listen{
+        position: fixed;
+        left: 0;
+        bottom: $mainNavHeight;
+        width: 100%;
+        height: $buttonHeight;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__button{
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: $primary;
+        border: 2px solid $primary;
+        border-radius: $buttonHeight / 2;
+        font-size: 0.9em;
+        width: 80%;
+        height: 42%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @media only screen and (max-width: 400px) {
+        &__songs{
+            position: static;
+            padding: 2em 0 0;
+        }
+        &__listen{
+            position: static;
+            margin-bottom: $mainNavHeight + 20px;
+        }
+    }
+}
