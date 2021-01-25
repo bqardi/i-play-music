@@ -3,100 +3,12 @@ import CardMini from "../components/CardMini";
 import MainHeader from "../components/MainHeader";
 import MainTitle from "../components/MainTitle";
 import SampleView from "../components/SampleView";
+import fakeAPIContent from "../FakeAPIContent";
 import "./AlbumDisplay.scss";
 
 function AlbumDisplay({id}){
-    var fakeAPIContent = [
-        {
-            id: "111",
-            title: "Old Town Road",
-            songCount: 12,
-            images: [
-                "/images/old-town-road.jpg"
-            ],
-            genres: [
-                "country",
-                "country road"
-            ],
-            songs: [
-                {
-                    title: "Old Town Road",
-                    artist: "Billy Ray Cyrus",
-                    duration: "3:58"
-                },
-                {
-                    title: "Don't Call Me Up",
-                    artist: "Mabel",
-                    duration: "2:46"
-                },
-                {
-                    title: "Let me Down Slowly",
-                    artist: "Alec Benjamin",
-                    duration: "4:12"
-                },
-                {
-                    title: "Paradise",
-                    artist: "Bazzi",
-                    duration: "3:12"
-                },
-                {
-                    title: "Sucker",
-                    artist: "Jonas Brothers",
-                    duration: "3:56"
-                },
-                {
-                    title: "Kill This Love",
-                    artist: "BLACKPINK",
-                    duration: "2:47"
-                },
-            ]
-        },
-        {
-            id: "112",
-            title: "The Greatest Showman",
-            songCount: 8,
-            images: [
-                "/images/the-greatest-showman.jpg"
-            ],
-            genres: [
-                "Blues",
-                "Blues Rock"
-            ],
-            songs: [
-                {
-                    title: "Old Blue Town",
-                    artist: "Him over there",
-                    duration: "3:12"
-                },
-                {
-                    title: "Two",
-                    artist: "Bluetallica",
-                    duration: "5:51"
-                },
-                {
-                    title: "I Will Always Love You",
-                    artist: "Whitney Houston",
-                    duration: "3:38"
-                },
-                {
-                    title: "Paradise City",
-                    artist: "Guns'N'Roses",
-                    duration: "4:03"
-                },
-                {
-                    title: "Hotel California",
-                    artist: "Eagles",
-                    duration: "12:44"
-                },
-                {
-                    title: "I",
-                    artist: "BLACKPINK",
-                    duration: "2:47"
-                },
-            ]
-        },
-    ]
-    var album = fakeAPIContent.find((item) => item.id === id.toString());
+    var {albums} = fakeAPIContent;
+    var album = albums.find((item) => item.id === id.toString());
     if (!album) {
         return (
             <article className="AlbumDisplay AlbumDisplay--black">
