@@ -1,0 +1,47 @@
+@import "../variables.scss";
+
+.Login{
+    padding: $mainPadding;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    &__title{
+        font-size: 2em;
+        margin: 0 0 3em;
+    }
+    &__button{
+        text-transform: uppercase;
+        width: 100%;
+        border: 3px solid black;
+        border-radius: 30px;
+        height: 60px;
+        background-color: transparent;
+        letter-spacing: 3px;
+        font-size: 1em;
+        font-weight: 700;
+    }
+    &__onetouch{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 4em;
+    }
+    &__fingerprint{
+        width: 80px;
+        height: 80px;
+        border: none;
+        border-radius: 50%;
+        background-color: $primary;
+    }
+    &__icon{
+        width: 40px;
+        height: 40px;
+        fill: white;
+    }
+    &__text{
+        text-align: center;
+        font-weight: 300;
+    }
+}
