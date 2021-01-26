@@ -54,4 +54,16 @@
         margin-bottom: 0.5em;
         padding: 0.5em;
     }
+    @media only screen and (max-height: 800px) {
+        &{
+            $imageHeight: 50vh;
+            height: calc(#{$imageHeight} - #{$headerHeight});
+            &__image{
+                height: $imageHeight;
+            }
+            &__scroll{
+                top: $imageHeight;
+            }
+        }
+    }
 }

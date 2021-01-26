@@ -3,6 +3,7 @@ import { Router } from '@reach/router';
 import MainContent from './components/MainContent';
 import MainNavBar from './components/MainNav';
 import Login from './views/Login';
+import Splash from "./views/Splash";
 
 function App() {
     var [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -10,6 +11,7 @@ function App() {
     if (!isLoggedIn) {
         return (
             <>
+                <Splash/>
                 <Login validate={login}/>
             </>
         )
