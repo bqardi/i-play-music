@@ -1,0 +1,26 @@
+@import "../variables.scss";
+
+.LoginField{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+    font-weight: 700;
+    &__input{
+        margin-top: 0.5em;
+        padding: 1.2em 0;
+        border: none;
+        border-bottom: 3px solid black;
+        outline: none;
+    }
+    &__input:focus, &__input:active{
+        border-bottom: 3px solid $primary;
+    }
+    &__icon{
+        position: absolute;
+        bottom: 16px;
+        right: 0;
+        width: 24px;
+        height: 24px;
+    }
+}
