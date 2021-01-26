@@ -6,24 +6,24 @@ import Login from './views/Login';
 import Splash from "./views/Splash";
 
 function App() {
-    // var [isLoggedIn, setIsLoggedIn] = useState(false);
+    var [isLoggedIn, setIsLoggedIn] = useState(false);
     
-    // if (!isLoggedIn) {
-    //     return (
-    //         <>
-    //             <Splash/>
-    //             <Login validate={login}/>
-    //         </>
-    //     )
-    // }
+    if (!isLoggedIn) {
+        return (
+            <>
+                <Splash/>
+                <Login validate={login}/>
+            </>
+        )
+    }
 
-    // function login(obj){
-    //     if (obj.ok) {
-    //         setIsLoggedIn(true);
-    //     } else {
-    //         console.log("Final:", obj)
-    //     }
-    // }
+    function login(obj){
+        if (obj.ok) {
+            setIsLoggedIn(true);
+        } else {
+            console.log("Final:", obj)
+        }
+    }
 
     return (
         <>
