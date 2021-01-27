@@ -21,7 +21,7 @@
     }
     &__songs{
         position: absolute;
-        top: $imageHeight + 50px;
+        top: $imageHeight + 74px;
         left: 0;
         right: 0;
         bottom: $mainNavHeight + $buttonHeight;
@@ -50,12 +50,13 @@
         border-radius: $buttonHeight / 2;
         font-size: 0.9em;
         width: 80%;
+        max-width: 360px;
         height: 42%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-height: 750px) {
         &__songs{
             position: static;
             padding: 2em 0 0;
