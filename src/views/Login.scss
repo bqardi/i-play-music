@@ -1,15 +1,14 @@
 @import "../variables.scss";
 
 .Login{
-    padding: $mainPadding;
+    padding: 0 $mainPadding;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: calc(100vh - #{$headerHeight} - #{$mainNavHeight});
     &__title{
         font-size: 2em;
-        margin: 0 0 3em;
     }
     &__button{
         text-transform: uppercase;
@@ -26,7 +25,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-bottom: 4em;
     }
     &__fingerprint{
         width: 80px;

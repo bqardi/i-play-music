@@ -1,53 +1,78 @@
 import { useState } from "react";
+import querystring from "querystring";
 import LoginField from "../components/LoginField";
 import "./Login.scss";
 
 function Login({validate}){
-    var [username, setUsername] = useState({username:"Please fill out this field!"});
-    var [password, setPassword] = useState({password:"Please fill out this field!"});
+    var [errors, setErrors] = useState({username: "initial", password: "initial"});
 
     function canLogin(e){
         e.preventDefault();
-        var obj = {
-            ok: true,
-            errors: []
+        var errs = errors;
+        var validation = {
+            action: e.target.action
         }
-        if (username.username) {
-            obj.ok = false;
-            obj.errors.push(username);
+        if (errs.username === "initial") {
+            errs.username = "Enter something!"
         }
-        if (password.password) {
-            obj.ok = false;
-            obj.errors.push(password);
+        if (errs.password === "initial") {
+            errs.password = "Enter something!"
         }
-        validate(obj);
+        if (errs.username || errs.password) {
+            validation.errors = errs;
+        }
+        validate(validation);
+    }
+
+    function addError(err){
+        var errs = errors;
+        errs[err.field] = err.error;
+        setErrors(errs);
     }
 
     var usernameField = {
-        onChange(error){setUsername({username: error})},
+        onChange(error){addError({field: "username", error})},
         title: "Username",
         htmlFor: "username",
         type: "text",
         placeholder: "Enter your username",
+        errHandler: {
+            length: {
+                value: 2,
+                msg: "There must be at least two or more characters!"
+            }
+        },
         icon: "M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"
     }
     var passwordField = {
-        onChange(error){setPassword({password: error})},
+        onChange(error){addError({field: "password", error})},
         title: "Password",
         htmlFor: "password",
         type: "password",
         placeholder: "Enter your password",
+        errHandler: {
+            length: {
+                value: 4,
+                msg: "There must be at least four or more characters!"
+            }
+        },
         icon: "M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z"
     }
+
+    var queryParameters = querystring.stringify({
+		response_type: "code",
+		client_id: "7c2201d7ecde48bfa743a10b37b75c18",
+		scope: "user-read-private user-read-email",
+		redirect_uri: "http://localhost:8888/callback",
+		state: "vdjldfglfdlgrpoiaer9garlogihlgkzhdrlgishlro8tubzpdortuzorihglzdoighlzoirhtlzo8ghldhglzdghlzdoigh"
+    });
     
     return (
         <article className="Login">
             <h1 className="Login__title">Log In</h1>
-            <form onSubmit={canLogin}>
+            <form onSubmit={canLogin} action={`https://accounts.spotify.com/authorize?${queryParameters}`}>
                 <LoginField field={usernameField}/>
                 <LoginField field={passwordField}/>
-                {/* <LoginField onChange={(error) => setUsername({username: error})} title="Username" htmlFor="username" type="text" placeholder="Enter your username" icon="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"/>
-                <LoginField onChange={(error) => setPassword({password: error})} title="Password" htmlFor="password" type="password" placeholder="Enter your password" icon="M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z"/> */}
                 <button className="Login__button">Log In</button>
             </form>
             <div className="Login__onetouch">

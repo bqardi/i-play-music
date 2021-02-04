@@ -32,6 +32,6 @@
         filter: brightness(var(--bright));
     }
     &--invert &__icon{
-        filter: invert(1);
+        filter: brightness(var(--invert));
     }
 }

@@ -2,40 +2,56 @@ import { useState } from "react";
 import { Router } from '@reach/router';
 import MainContent from './components/MainContent';
 import MainNavBar from './components/MainNav';
-import Login from './views/Login';
-import Splash from "./views/Splash";
+import {TokenContext} from "./TokenContext";
+import DarkmodeContext from "./DarkmodeContext";
 
 function App() {
-    // var [isLoggedIn, setIsLoggedIn] = useState(false);
-    
-    // if (!isLoggedIn) {
-    //     return (
-    //         <>
-    //             <Splash/>
-    //             <Login validate={login}/>
-    //         </>
-    //     )
-    // }
+    var tokenState = useState(null);
+    var darkmodeState = useState(false);
 
-    // function login(obj){
-    //     if (obj.ok) {
-    //         setIsLoggedIn(true);
-    //     } else {
-    //         console.log("Final:", obj)
-    //     }
-    // }
+    console.log(darkmodeState[0]);
 
     return (
-        <>
-            <MainContent/>
-            <Router primary={false}>
-                <MainNavBar path="/"/>
-                <MainNavBar path="/albums"/>
-                <MainNavBar path="/album/*"/>
-                <MainNavBar path="/categories"/>
-                <MainNavBar path="/playlists"/>
-            </Router>
-        </>
+        <TokenContext.Provider value={tokenState}>
+            <DarkmodeContext.Provider value={darkmodeState}>
+                <style>
+                    {(function(){
+                        if (darkmodeState[0]) {
+                            return `
+                                :root {
+                                    --primary: #ff1168;
+                                    --secondary: white;
+                                    --additional: #111625;
+                                    --light: #341931;
+                                    --brightness: 0.75;
+                                    --dark: 0;
+                                    --bright: 1;
+                                    --invert: 3;
+                                }
+                            `
+                        }
+                    })()}
+                </style>
+                <MainContent/>
+                <Router primary={false}>
+                    {
+                        (function(){
+                            if (tokenState[0]?.access_token) {
+                                return (
+                                    <>
+                                        <MainNavBar path="/featured"/>
+                                        <MainNavBar path="/albums/*"/>
+                                        <MainNavBar path="/album/*"/>
+                                        <MainNavBar path="/categories"/>
+                                        <MainNavBar path="/playlists/*"/>
+                                    </>
+                                )
+                            }
+                        })()
+                    }
+                </Router>
+            </DarkmodeContext.Provider>
+        </TokenContext.Provider>
     );
 }
 

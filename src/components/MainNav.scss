@@ -7,7 +7,7 @@
     box-shadow: 0 -10px 25px 0 rgba(0, 0, 0, 0.1);
     width: 100%;
     height: $mainNavHeight;
-    background-color: white;
+    background-color: var(--additional);
     display: flex;
     justify-content: center;
     &__container{

@@ -1,26 +1,16 @@
 import { useState } from "react";
+import helpers from "../helpers";
 import "./PlayerNav.scss";
 
-function PlayerNav({url, m, s}){
+function PlayerNav({ms}){
     var [progress, setProgress] = useState(0);
     var [timeStr, setTimeStr] = useState("0:00");
 
     function updateProgress(e){
-        var seconds = m * 60 + parseInt(s);
         var currProgress = parseFloat(e.target.value);
-        var currTime = (seconds / 100 * currProgress).toFixed(2);
-        setTimeStr(msToTimeStr(currTime));
+        var currTime = ((ms / 100 * currProgress)).toFixed(2);
+        setTimeStr(helpers.timeStr(currTime));
         setProgress(currProgress);
-    }
-
-    function msToTimeStr(totalSeconds) {
-        var minutes = Math.floor(totalSeconds / 60);
-        var seconds = (totalSeconds % 60).toFixed(0);
-        if (seconds >= 60) {
-            minutes++;
-            seconds = 0;
-        }
-        return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
     }
 
     return (
@@ -28,7 +18,7 @@ function PlayerNav({url, m, s}){
             <input className="PlayerNav__slider" onInput={updateProgress} type="range" name="duration" id="player-duration" value={progress} step="0.01"/>
             <div className="PlayerNav__durations">
                 <p className="PlayerNav__durationText">{timeStr}</p>
-                <p className="PlayerNav__durationText">{m}:{s}</p>
+                <p className="PlayerNav__durationText">{helpers.timeStr(ms)}</p>
             </div>
             <div className="PlayerNav__navigation">
                 <button className="PlayerNav__button">

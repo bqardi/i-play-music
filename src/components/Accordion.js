@@ -1,8 +1,29 @@
+import { useContext, useEffect, useState } from "react";
+import {TokenContext} from "../TokenContext";
+import ChevronLink from "./ChevronLink";
 import "./Accordion.scss";
+import helpers from "../helpers";
 
-function Accordion({title, color, children}){
+function Accordion({title, color, id}){
+    var [token, setToken] = useContext(TokenContext);
+    var [content, setContent] = useState({});
+    var [isOpen, setIsOpen] = useState({initial: true});
+    
+	useEffect(function() {
+        if (isOpen.open) {
+            helpers.spotify(`/browse/categories/${id}/playlists`, token, data =>
+                data.token_expired ? setToken(data) : setContent(data));
+            return setIsOpen({open: false});
+        }
+    }, [token, setContent, id, isOpen, setToken]);
+
+    function setOpen(){
+        if (!isOpen.initial) return;
+        setIsOpen({open: true});
+    }
+
     return (
-        <details className="Accordion">
+        <details className="Accordion" onClick={setOpen}>
             <summary className="Accordion__summary" style={{backgroundColor: color}}>
                 <h4 className="Accordion__title">
                     {title}
@@ -10,7 +31,7 @@ function Accordion({title, color, children}){
                 </h4>
             </summary>
             <div className="Accordion__content">
-                {children}
+                {content.playlists?.items.map(item => <ChevronLink key={item.id} to={`/playlists/${item.id}`} title={item.name}/>)}
             </div>
         </details>
     );

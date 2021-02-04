@@ -11,7 +11,7 @@
     align-items: center;
     height: $headerHeight;
     padding: 0 0.5em;
-    background-color: white;
+    background-color: var(--light);
     &__title{
         margin: 0;
         font-size: 1em;

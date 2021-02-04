@@ -2,7 +2,7 @@
 
 .AlbumDisplay{
     $imageHeight: 400px;
-    color: white;
+    // color: white;
     height: $imageHeight - $headerHeight;
     &--black{
         color: black;
@@ -24,6 +24,7 @@
         justify-content: space-between;
         padding-bottom: $mainPadding;
         box-sizing: border-box;
+        color: black;
     }
     &__description{
         font-size: 0.9em;

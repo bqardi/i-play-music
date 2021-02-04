@@ -1,31 +1,34 @@
+import { useContext, useEffect, useState } from "react";
 import MainHeader from "../components/MainHeader";
 import PlayerNav from "../components/PlayerNav";
-import fakeAPIContent from "../FakeAPIContent";
+import helpers from "../helpers";
+import {TokenContext} from "../TokenContext";
 import "./Player.scss";
 
-function Player({album, song}){
-    var songIndex = song === "all" ? 0 : parseInt(song);
-    var {albums} = fakeAPIContent;
-    var albumObj = albums.find((item) => item.id === album);
-    var songObj = albumObj.songs[songIndex];
-    var [min, sec] = songObj.duration.split(":");
-    var ms = (min * 60 + parseInt(sec)) * 1000;
-    console.log(ms)
+function Player({id}){
+    var [token, setToken] = useContext(TokenContext);
+    var [content, setContent] = useState({});
+    
+	useEffect(function() {
+        helpers.spotify(`/tracks/${id}`, token, data =>
+            data.token_expired ? setToken(data) : setContent(data));
+    }, [token, setContent, id, setToken]);
+
     return (
-        <article className="Player" style={{backgroundImage: `url(${albumObj.images[0]})`}}>
+        <article className="Player" style={{backgroundImage: `url(${content.album?.images && content.album?.images[0].url})`}}>
             <MainHeader title="Playing" invert transparent/>
             <div className="Player__image">
                 <div className="Player__imageOuter">
                     <div className="Player__imageInner">
-                        <img className="Player__imageImg" src={songObj.images[0]} alt={songObj.artist}/>
+                        <img className="Player__imageImg" src={content.album?.images && content.album?.images[0].url} alt={content.artists && content.artists[0]}/>
                     </div>
                 </div>
             </div>
-            <h1 className="Player__title">{songObj.title}</h1>
-            <p className="Player__artist">{songObj.artist}</p>
-            <PlayerNav url="/" m={min} s={sec}/>
+            <h1 className="Player__title">{content.name}</h1>
+            <p className="Player__artist">{content.artists && content.artists[0].name}</p>
+            <PlayerNav ms={parseInt(content.duration_ms)}/>
         </article>
-    );
+    )
 }
 
 export default Player;

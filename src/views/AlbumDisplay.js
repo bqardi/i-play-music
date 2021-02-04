@@ -1,46 +1,48 @@
 import { Link } from "@reach/router";
+import { useContext, useEffect, useState } from "react";
+import {TokenContext} from "../TokenContext";
 import CardMini from "../components/CardMini";
 import MainHeader from "../components/MainHeader";
-import MainTitle from "../components/MainTitle";
 import SampleView from "../components/SampleView";
-import fakeAPIContent from "../FakeAPIContent";
+import helpers from "../helpers";
 import "./AlbumDisplay.scss";
 
-function AlbumDisplay({id}){
-    var {albums} = fakeAPIContent;
-    var album = albums.find((item) => item.id === id.toString());
-    if (!album) {
-        return (
-            <article className="AlbumDisplay AlbumDisplay--black">
-                <MainHeader title="Album"/>
-                <MainTitle title="Not Found" gradient/>
-                <div>
-                    Could not find any album with id {id}!
-                </div>
-            </article>
-        );
-    }
+function AlbumDisplay({type, id}){
+    var [token, setToken] = useContext(TokenContext);
+    var [content, setContent] = useState({});
+    
+	useEffect(function() {
+        helpers.spotify(`/${type}/${id}`, token, data =>
+            data.token_expired ? setToken(data) : setContent(data));
+    }, [token, setContent, type, id, setToken]);
+
     return (
         <article className="AlbumDisplay">
-            <MainHeader title="Album" invert transparent/>
-            <img className="AlbumDisplay__image" src={album.images[0]} alt={album.title}/>
-            <div className="AlbumDisplay__content">
+            <MainHeader title={content.name} invert transparent style={{color: content.primary_color}}/>
+            <img className="AlbumDisplay__image" src={content.images && content.images[0].url} alt={content.name}/>
+            <div className="AlbumDisplay__content" style={{color: content.primary_color}}>
                 <div className="AlbumDisplay__heading">
-                    <MainTitle title={album.title}/>
-                    {album.songCount} Songs
+                    {content.tracks?.total} Songs
                 </div>
                 <div className="AlbumDisplay__hashtags">
                     <p className="AlbumDisplay__description">Genres hashtags</p>
-                    {album.genres.map((genre) => <Link key={genre} to="/categories" className="AlbumDisplay__genre">#{genre}</Link>)}
+                    {content.genres?.map((genre) => <Link key={genre} to="/categories" className="AlbumDisplay__genre">#{genre}</Link>)}
                 </div>
             </div>
             <div className="AlbumDisplay__scroll">
                 <SampleView title="All Songs">
-                    {album.songs.map((song, index) =>
-                        <div key={index} className="AlbumDisplay__card">
-                            <CardMini modifier="small" to={`/player/${id}/${index}`} src="/images/icons/play.svg" title={song.title} description={song.artist} additional={song.duration}/>
-                        </div>
-                    )}
+                    {content.tracks?.items.map((item, index) => {
+                        var track = item.track || item;
+                        if (item.track) {
+                            var ms = parseInt(track.duration_ms);
+                            var duration = helpers.timeStr(ms);
+                        }
+                        return (
+                            <div key={index} className="AlbumDisplay__card">
+                                <CardMini modifier="small" to={`/player/${track.id}`} src="/images/icons/play.svg" title={track.name} description={track.artists && track.artists[0].name} additional={duration}/>
+                            </div>
+                        )
+                    })}
                 </SampleView>
             </div>
         </article>
