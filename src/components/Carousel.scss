@@ -12,11 +12,10 @@
         overflow: hidden;
         padding: 1em 0;
         margin: -1em auto;
-        max-width: 600px;
     }
     &__grid{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 0 repeat(3, 1fr) 0;
         justify-items: center;
         align-items: center;
         gap: 0 2em;
@@ -26,6 +25,18 @@
         &--side{
             width: 100px;
             height: 100px;
+            cursor: pointer;
+            transition: transform .3s;
+        }
+        &--left{
+            &:hover{
+                transform: scale(1.05) translate(.25em);
+            }
+        }
+        &--right{
+            &:hover{
+                transform: scale(1.05) translate(-.25em);
+            }
         }
         &--focus{
             width: $focusHeight;
@@ -33,7 +44,7 @@
         }
     }
     &__title{
-        grid-column: span 3;
+        grid-column: span 5;
         height: $titleHeight;
         margin: $titleMarginTop 0 0;
         text-align: center;

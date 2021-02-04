@@ -3,11 +3,20 @@ import "./Splash.scss";
 
 function Splash(){
     var [hide, setHide] = useState(false);
+
     useEffect(() => {
-        setTimeout(() => {
-            setHide(true);
-        }, 4500);
+        if (!sessionStorage.getItem("splash")) {
+            setTimeout(() => {
+                sessionStorage.setItem("splash", "false");
+                setHide(true);
+            }, 4500);
+        }
     }, []);
+
+    if (sessionStorage.getItem("splash")) {
+        return null;
+    }
+
     return (
         <article className={`Splash${hide ? " js-hidden" : ""}`}>
             <div className="Splash__content">

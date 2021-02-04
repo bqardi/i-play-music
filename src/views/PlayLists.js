@@ -1,38 +1,65 @@
 import { Link } from "@reach/router";
 import CardImage from "../components/CardImage";
-import CardMini from "../components/CardMini";
 import MainHeader from "../components/MainHeader";
 import MainTitle from "../components/MainTitle";
 import Carousel from "../components/Carousel";
-import fakeAPIContent from "../FakeAPIContent";
+import { useContext, useEffect, useState } from "react";
+import {TokenContext} from "../TokenContext";
 import "./PlayLists.scss";
+import PlayListSongs from "./PlayListSongs";
+import helpers from "../helpers";
 
 function PlayLists(){
-    var id = 113;
-    var {albums} = fakeAPIContent;
-    var album = albums.find((item) => item.id === id.toString());
-    var pics = {
-        previous: <CardImage to="/album/111" src="./images/butterfly.jpg" alt="Butterfly"/>,
-        current: <CardImage to="/album/113" src="./images/scary-girl.jpg" alt="Scary Girl"/>,
-        next: <CardImage to="/album/112" src="./images/the-greatest-showman.jpg" alt="The Greatest Showman"/>,
-        title: album.title,
-        type: album.type
+    var [token, setToken] = useContext(TokenContext);
+    var [content, setContent] = useState({});
+    var [currIndex, setCurrIndex] = useState(0);
+    
+	useEffect(function() {
+        helpers.spotify(`/me/playlists`, token, data =>
+            data.token_expired ? setToken(data) : setContent(data));
+    }, [token, setContent, setToken]);
+
+    function setPics(index){
+        var length = content.items?.length;
+        if (!length) {
+            return {}
+        }
+        var prevItem = content.items[prevIndex(index, length)];
+        var currentItem = content.items[index];
+        var nextItem = content.items[nextIndex(index, length)];
+        return {
+            previous: <CardImage onClick={() => setCurrIndex(prevIndex(index, length))} pointer src={prevItem.images[0].url} alt="Butterfly"/>,
+            current: <CardImage src={currentItem.images[0].url} alt="Scary Girl"/>,
+            next: <CardImage onClick={() => setCurrIndex(nextIndex(index, length))} pointer src={nextItem.images[0].url} alt="The Greatest Showman"/>,
+            title: currentItem.name
+        };
     }
+    function prevIndex(index, length){
+        var i = index - 1;
+        if (i < 0) {
+            i = length - 1;
+        }
+        return i;
+    }
+    function nextIndex(index, length){
+        var i = index + 1;
+        if (i >= length) {
+            i = 0;
+        }
+        return i;
+    }
+
     return (
         <article className="PlayLists">
             <img className="PlayLists__image" src="/images/sound-wave.png" alt="Background waves"/>
             <MainHeader title="Playlists" invert transparent/>
             <MainTitle title="Playlists"/>
-            <Carousel pics={pics}/>
+            <Carousel pics={setPics(currIndex)}/>
             <div className="PlayLists__songs">
-                {album.songs.map((song, index) => 
-                    <div key={index} className="PlayLists__card">
-                        <CardMini modifier="small" to={`/player/${album.id}/${index}`} src="/images/icons/play.svg" title={song.title} description={song.artist} additional={song.duration}/>
-                    </div>
-                )}
+                <PlayListSongs id={content.items && content.items[currIndex].id}/>
             </div>
             <div className="PlayLists__listen">
-                <Link to={`/player/${album.id}/all`} className="PlayLists__button">Listen All</Link>
+                <Link to={`/player/${content.items && content.items[currIndex].id}/all`} className="PlayLists__button">Listen All</Link>
             </div>
         </article>
     );

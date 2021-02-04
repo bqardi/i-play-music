@@ -1,20 +1,29 @@
 import CardFadedBottom from "../components/CardFadedBottom";
 import MainTitle from "../components/MainTitle";
 import MainHeader from '../components/MainHeader';
-import fakeAPIContent from "../FakeAPIContent";
 import "./Featured.scss";
+import { useContext, useEffect, useState } from "react";
+import {TokenContext} from "../TokenContext";
+import helpers from "../helpers";
 
 function Featured(){
-    var{albums} = fakeAPIContent;
+    var [token, setToken] = useContext(TokenContext);
+    var [content, setContent] = useState({});
+    
+	useEffect(function() {
+        helpers.spotify("/browse/featured-playlists", token, data => 
+            data.token_expired ? setToken(data) : setContent(data));
+    }, [token, setContent, setToken]);
+
     return (
         <section className="Featured">
             <MainHeader title="Featured"/>
             <MainTitle title="Featured" gradient/>
             <div className="Featured__cards">
-                {albums.map((item) => 
-                    <CardFadedBottom key={item.id} to={`/album/${item.id}`} src={item.images[0]}>
-                        <h3 className="Featured__title">{item.title}</h3>
-                        <p className="Featured__text">{item.type}</p>
+                {content.playlists?.items.map((item) => 
+                    <CardFadedBottom key={item.id} to={`/playlists/${item.id}`} src={item.images[0].url}>
+                        <h3 className="Featured__title">{item.name}</h3>
+                        <p className="Featured__text">{item.description}</p>
                     </CardFadedBottom>
                 )}
             </div>
