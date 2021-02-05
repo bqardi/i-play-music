@@ -33,13 +33,17 @@ function AlbumDisplay({type, id}){
                 <SampleView title="All Songs">
                     {content.tracks?.items.map((item, index) => {
                         var track = item.track || item;
-                        if (item.track) {
-                            var ms = parseInt(track.duration_ms);
-                            var duration = helpers.timeStr(ms);
-                        }
+                        var ms = parseInt(track.duration_ms);
+                        var duration = helpers.timeStr(ms);
                         return (
                             <div key={index} className="AlbumDisplay__card">
-                                <CardMini modifier="small" to={`/player/${track.id}`} src="/images/icons/play.svg" title={track.name} description={track.artists && track.artists[0].name} additional={duration}/>
+                                <CardMini
+                                    modifier="small"
+                                    to={`/player/${track.id}`}
+                                    src="/images/icons/play.svg"
+                                    title={track.name}
+                                    description={track.artists && track.artists[0].name}
+                                    additional={duration}/>
                             </div>
                         )
                     })}

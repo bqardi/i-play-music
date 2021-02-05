@@ -7,9 +7,11 @@ function Splash(){
     useEffect(() => {
         if (!sessionStorage.getItem("splash")) {
             setTimeout(() => {
-                sessionStorage.setItem("splash", "false");
                 setHide(true);
             }, 4500);
+            setTimeout(() => {
+                sessionStorage.setItem("splash", "false");
+            }, 6000);
         }
     }, []);
 

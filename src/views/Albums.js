@@ -42,7 +42,7 @@ function Albums(){
                             src={item.images[2].url}
                             title={item.name}
                             description={item.artists[0].name}
-                            additional={`${item.total_tracks} Songs`}
+                            additional={`${item.total_tracks} Song${item.total_tracks === 1 ? "" : "s"}`}
                         />
                     })}
                 </div>
