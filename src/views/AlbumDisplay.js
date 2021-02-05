@@ -12,13 +12,13 @@ function AlbumDisplay({type, id}){
     var [content, setContent] = useState({});
     
 	useEffect(function() {
-        helpers.spotify(`/${type}/${id}`, token, data =>
+        helpers.spotify(`/${type}/${id}?country=DK&locale=en_GB`, token, data =>
             data.token_expired ? setToken(data) : setContent(data));
     }, [token, setContent, type, id, setToken]);
 
     return (
         <article className="AlbumDisplay">
-            <MainHeader title={content.name} invert transparent style={{color: content.primary_color}}/>
+            <MainHeader title={content.name} transparent style={{color: content.primary_color}}/>
             <img className="AlbumDisplay__image" src={content.images && content.images[0].url} alt={content.name}/>
             <div className="AlbumDisplay__content" style={{color: content.primary_color}}>
                 <div className="AlbumDisplay__heading">

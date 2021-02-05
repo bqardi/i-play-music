@@ -3,7 +3,7 @@
 .CardMini{
     display: grid;
     grid-template-columns: 56px 1fr auto;
-    gap: 0.5em;
+    gap: 1em;
     align-items: center;
     text-decoration: none;
     color: var(--secondary);
@@ -23,11 +23,13 @@
     &__title{
         margin: 0;
         font-size: 1em;
-        margin-bottom: 0.3em;
+        margin-bottom: 0.2em;
+        line-height: 1.1em;
     }
     &__description{
         margin: 0;
         font-size: 0.8em;
+        font-weight: 300;
     }
     &__additional{
         font-size: 0.8em;

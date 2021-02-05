@@ -15,16 +15,16 @@ function Albums(){
     var [content, setContent] = useState({});
     
 	useEffect(function() {
-        helpers.spotify(`/browse/new-releases`, token, data =>
+        helpers.spotify(`/browse/new-releases?country=DK&locale=en_GB`, token, data =>
             data.token_expired ? setToken(data) : setContent(data));
         
-        helpers.spotify(`/browse/featured-playlists`, token, data =>
+        helpers.spotify(`/browse/featured-playlists?country=DK&locale=en_GB`, token, data =>
             data.token_expired ? setToken(data) : setFeatured(data));
     }, [token, setContent, setToken]);
 
     return (
         <section className="Albums">
-            <MainHeader title="Music" invert/>
+            <MainHeader title="Music"/>
             <MainTitle title="All Albums" gradient/>
             <SampleView title="Featured Albums" viewAll>
                 <Slider>

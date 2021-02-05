@@ -10,12 +10,24 @@
     font-weight: 300;
     height: 35px;
     padding: 0 1.5em;
+    &__title{
+        flex-grow: 1;
+    }
+    &__count{
+        margin-right: 0.5em;
+        font-size: 0.8em;
+        letter-spacing: 2px;
+    }
     &:hover{
+        color: #341931;
         background-color: lighten($primary, 44);
     }
     &__icon{
         width: 24px;
         height: 24px;
         fill: var(--secondary);
+    }
+    &:hover &__icon{
+        fill: #341931;
     }
 }

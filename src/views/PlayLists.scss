@@ -55,6 +55,22 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition-property: background-color, box-shadow, border-color, transform;
+        transition-duration: .15s;
+        &:hover{
+            transform: scale(1.01, 1.02);
+            animation-name: neon;
+            animation-duration: .3s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes neon {
+            0%{border-color: $primary;box-shadow: none;background-color: transparent;}
+            20%{border-color: lighten($primary, 50);box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), .5);background-color: transparentize($primary, .9);}
+            35%{border-color: $primary;box-shadow: none;background-color: transparent;}
+            50%{border-color: lighten($primary, 50);box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), .5);background-color: transparentize($primary, .9);}
+            60%{border-color: $primary;box-shadow: none;background-color: transparent;}
+            100%{border-color: lighten($primary, 50);box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), .5);background-color: transparentize($primary, .9);}
+        }
     }
     @media only screen and (max-height: 750px) {
         &__songs{

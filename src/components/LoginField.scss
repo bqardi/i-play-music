@@ -29,8 +29,10 @@
         margin-top: 0.5em;
         padding: 1.2em 0;
         border: none;
-        border-bottom: 3px solid black;
+        border-bottom: 3px solid var(--secondary);
         outline: none;
+        background-color: transparent;
+        color: var(--secondary);
     }
     &__input:focus, &__input:active{
         border-bottom: 3px solid $primary;
@@ -41,5 +43,6 @@
         right: 0;
         width: 24px;
         height: 24px;
+        fill: var(--secondary);
     }
 }

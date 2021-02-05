@@ -13,13 +13,14 @@
     &__button{
         text-transform: uppercase;
         width: 100%;
-        border: 3px solid black;
+        border: 3px solid var(--secondary);
         border-radius: 30px;
         height: 60px;
         background-color: transparent;
         letter-spacing: 3px;
         font-size: 1em;
         font-weight: 700;
+        color: var(--secondary);
     }
     &__onetouch{
         display: flex;

@@ -13,25 +13,19 @@
     outline: none;
     padding: 0;
     cursor: pointer;
-    &:hover{
-        filter: saturate(0) brightness(var(--bright));
-    }
-    &--large:hover &__icon{
-        filter: brightness(var(--bright));
-    }
     &__icon{
         width: 24px;
         height: 24px;
-    }
-    &--large{
-        background-image: $gradient;
-    }
-    &--large &__icon{
-        width: 32px;
-        height: 32px;
-        filter: brightness(var(--bright));
+        fill: var(--secondary);
+        transition: filter .3s;
     }
     &--invert &__icon{
-        filter: brightness(var(--invert));
+        fill: var(--light);
+    }
+    &--white &__icon{
+        fill: white;
+    }
+    &:hover &__icon{
+        filter: saturate(0) brightness(var(--bright));
     }
 }

@@ -11,7 +11,7 @@ function Accordion({title, color, id}){
     
 	useEffect(function() {
         if (isOpen.open) {
-            helpers.spotify(`/browse/categories/${id}/playlists`, token, data =>
+            helpers.spotify(`/browse/categories/${id}/playlists?country=DK&locale=en_GB`, token, data =>
                 data.token_expired ? setToken(data) : setContent(data));
             return setIsOpen({open: false});
         }
@@ -31,7 +31,7 @@ function Accordion({title, color, id}){
                 </h4>
             </summary>
             <div className="Accordion__content">
-                {content.playlists?.items.map(item => <ChevronLink key={item.id} to={`/playlists/${item.id}`} title={item.name}/>)}
+                {content.playlists?.items.map(item => <ChevronLink key={item.id} to={`/playlists/${item.id}`} title={item.name} count={item.tracks.total}/>)}
             </div>
         </details>
     );
