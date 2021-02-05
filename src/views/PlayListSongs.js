@@ -10,7 +10,7 @@ function PlayListSongs({id}){
     
 	useEffect(function() {
         if (id) {
-            helpers.spotify(`/playlists/${id}`, token, data =>
+            helpers.spotify(`/playlists/${id}?country=DK&locale=en_GB`, token, data =>
                 data.token_expired ? setToken(data) : setContent(data));
         }
     }, [token, setToken, setContent, id]);

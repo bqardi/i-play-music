@@ -15,7 +15,7 @@ function PlayLists(){
     var [currIndex, setCurrIndex] = useState(0);
     
 	useEffect(function() {
-        helpers.spotify(`/me/playlists`, token, data =>
+        helpers.spotify(`/me/playlists?country=DK&locale=en_GB`, token, data =>
             data.token_expired ? setToken(data) : setContent(data));
     }, [token, setContent, setToken]);
 
@@ -52,7 +52,7 @@ function PlayLists(){
     return (
         <article className="PlayLists">
             <img className="PlayLists__image" src="/images/sound-wave.png" alt="Background waves"/>
-            <MainHeader title="Playlists" invert transparent/>
+            <MainHeader title="Playlists" modifier="white" transparent/>
             <MainTitle title="Playlists"/>
             <Carousel pics={setPics(currIndex)}/>
             <div className="PlayLists__songs">

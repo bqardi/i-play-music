@@ -48,7 +48,7 @@
         height: $titleHeight;
         margin: $titleMarginTop 0 0;
         text-align: center;
-        color: black;
+        color: var(--secondary);
         vertical-align: baseline;
     }
     @media only screen and (min-width: 600px) {

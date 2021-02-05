@@ -1,17 +1,17 @@
 import { Link } from "@reach/router";
 import "./IconLink.scss";
 
-function IconLink({to, src, alt, modifier, ...props}){
+function IconLink({to, path, modifier, ...props}){
     if (to) {
         return (
             <Link to={to} className={ `IconLink${ modifier ? " IconLink--" + modifier : "" }` } {...props}>
-                <img className="IconLink__icon" src={src} alt={alt}/>
+                <svg className="IconLink__icon" viewBox="0 0 24 24"><path d={path}></path></svg>
             </Link>
         );
     }
     return (
         <button className={ `IconLink${ modifier ? " IconLink--" + modifier : "" }` } {...props}>
-            <img className="IconLink__icon" src={src} alt={alt}/>
+            <svg className="IconLink__icon" viewBox="0 0 24 24"><path d={path}></path></svg>
         </button>
     );
 }

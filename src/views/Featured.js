@@ -11,7 +11,7 @@ function Featured(){
     var [content, setContent] = useState({});
     
 	useEffect(function() {
-        helpers.spotify("/browse/featured-playlists", token, data => 
+        helpers.spotify("/browse/featured-playlists?country=DK&locale=en_GB", token, data => 
             data.token_expired ? setToken(data) : setContent(data));
     }, [token, setContent, setToken]);
 
@@ -22,7 +22,7 @@ function Featured(){
             <div className="Featured__cards">
                 {content.playlists?.items.map((item) => 
                     <CardFadedBottom key={item.id} to={`/playlists/${item.id}`} src={item.images[0].url}>
-                        <h3 className="Featured__title">{item.name}</h3>
+                        {/* <h3 className="Featured__title">{item.name}</h3> */}
                         <p className="Featured__text">{item.description}</p>
                     </CardFadedBottom>
                 )}

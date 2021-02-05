@@ -14,14 +14,12 @@ var helpers = {
     spotify(endpoint, token, callback){
         if (token){
             var elapsed = (new Date().getTime() - token.token_obtained) / 1000;
-            if (!isNaN(elapsed)) {
-                console.log("Time to refresh token (mm:ss):", this.timeStr((3600 - elapsed) * 1000));
-            }
-            if (elapsed < 3600) {
-                this.access(endpoint, token, data => callback(data));
-            } else {
+            if (!isNaN(elapsed))
+                console.log(elapsed < 3600 ? `Time to refresh token (mm:ss): ${this.timeStr((3600 - elapsed) * 1000)}` : "Refreshing token...");
+
+            elapsed < 3600 ?
+                this.access(endpoint, token, data => callback(data)) :
                 this.refresh(token, data => callback(data));
-            }
         }
     },
     access(endpoint, token, callback){

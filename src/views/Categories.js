@@ -11,7 +11,7 @@ function Categories(){
     var [content, setContent] = useState({});
     
 	useEffect(function() {
-        helpers.spotify(`/browse/categories`, token, data =>
+        helpers.spotify(`/browse/categories?country=DK&locale=en_GB`, token, data =>
             data.token_expired ? setToken(data) : setContent(data));
     }, [token, setContent, setToken]);
 

@@ -10,13 +10,13 @@ function Player({id}){
     var [content, setContent] = useState({});
     
 	useEffect(function() {
-        helpers.spotify(`/tracks/${id}`, token, data =>
+        helpers.spotify(`/tracks/${id}?country=DK&locale=en_GB`, token, data =>
             data.token_expired ? setToken(data) : setContent(data));
     }, [token, setContent, id, setToken]);
 
     return (
         <article className="Player" style={{backgroundImage: `url(${content.album?.images && content.album?.images[0].url})`}}>
-            <MainHeader title="Playing" invert transparent/>
+            <MainHeader title="Playing" transparent/>
             <div className="Player__image">
                 <div className="Player__imageOuter">
                     <div className="Player__imageInner">
