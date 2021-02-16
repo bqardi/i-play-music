@@ -54,6 +54,6 @@
 		}
 	},
 	"lint-staged": {
-		"*.{js,css,md}": "prettier --write && react-scripts test"
+		"*.{js,css,md}": ["npm test", "prettier --write"]
 	}
 }
