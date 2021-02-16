@@ -50,10 +50,10 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "react-scripts test && lint-staged"
+			"pre-commit": "lint-staged"
 		}
 	},
 	"lint-staged": {
-		"*.{js,css,md}": "prettier --write"
+		"*.{js,css,md}": "prettier --write && react-scripts test"
 	}
 }

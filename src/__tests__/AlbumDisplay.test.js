@@ -40,7 +40,6 @@ describe("Player component", () => {
 					<AlbumDisplay id="1234" type="album" />
 				</TokenContext.Provider>
 
-				
 			);
 		});
 
