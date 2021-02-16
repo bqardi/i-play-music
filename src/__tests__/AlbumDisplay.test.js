@@ -39,6 +39,8 @@ describe("Player component", () => {
 				<TokenContext.Provider value={mockContext}>
 					<AlbumDisplay id="1234" type="album" />
 				</TokenContext.Provider>
+
+				
 			);
 		});
 
