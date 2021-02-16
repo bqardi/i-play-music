@@ -1,46 +1,46 @@
 @import "../variables.scss";
 
-.Login{
-    padding: 0 $mainPadding;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: calc(100vh - #{$headerHeight} - #{$mainNavHeight});
-    &__title{
-        font-size: 2em;
-    }
-    &__button{
-        text-transform: uppercase;
-        width: 100%;
-        border: 3px solid var(--secondary);
-        border-radius: 30px;
-        height: 60px;
-        background-color: transparent;
-        letter-spacing: 3px;
-        font-size: 1em;
-        font-weight: 700;
-        color: var(--secondary);
-    }
-    &__onetouch{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    &__fingerprint{
-        width: 80px;
-        height: 80px;
-        border: none;
-        border-radius: 50%;
-        background-color: $primary;
-    }
-    &__icon{
-        width: 40px;
-        height: 40px;
-        fill: white;
-    }
-    &__text{
-        text-align: center;
-        font-weight: 300;
-    }
+.Login {
+	padding: 0 $mainPadding;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: calc(100vh - #{$headerHeight} - #{$mainNavHeight});
+	&__title {
+		font-size: 2em;
+	}
+	&__button {
+		text-transform: uppercase;
+		width: 100%;
+		border: 3px solid var(--secondary);
+		border-radius: 30px;
+		height: 60px;
+		background-color: transparent;
+		letter-spacing: 3px;
+		font-size: 1em;
+		font-weight: 700;
+		color: var(--secondary);
+	}
+	&__onetouch {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__fingerprint {
+		width: 80px;
+		height: 80px;
+		border: none;
+		border-radius: 50%;
+		background-color: $primary;
+	}
+	&__icon {
+		width: 40px;
+		height: 40px;
+		fill: white;
+	}
+	&__text {
+		text-align: center;
+		font-weight: 300;
+	}
 }

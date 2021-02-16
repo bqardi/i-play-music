@@ -1,46 +1,66 @@
-.Accordion{
-    margin-bottom: 0.8em;
-    &:nth-of-type(9n+1) &__summary{background-color: #D70060;}
-    &:nth-of-type(9n+2) &__summary{background-color: #E54028;}
-    &:nth-of-type(9n+3) &__summary{background-color: #F18D05;}
-    &:nth-of-type(9n+4) &__summary{background-color: #F2BC06;}
-    &:nth-of-type(9n+5) &__summary{background-color: #5EB11C;}
-    &:nth-of-type(9n+6) &__summary{background-color: #3A7634;}
-    &:nth-of-type(9n+7) &__summary{background-color: #0ABEBE;}
-    &:nth-of-type(9n+8) &__summary{background-color: #00A1CB;}
-    &:nth-of-type(9n+9) &__summary{background-color: #115793;}
-    &__summary{
-        list-style: none;
-        border-radius: 7px;
-        border: 2px solid transparent;
-        outline: none;
-        cursor: pointer;
-        &:hover{
-            box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.25);
-        }
-        &:hover, &:focus, &:active{
-            border: 2px solid var(--secondary);
-        }
-    }
-    &__summary::-webkit-details-marker{
-        display: none;
-    }
-    &__title{
-        margin: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1em;
-        color: white;
-        font-weight: 500;
-        height: 45px;
-    }
-    &__bullets{
-        width: 32px;
-        height: 32px;
-        fill: white;
-    }
-    &__content{
-        padding: 0.8em 0 0;
-    }
+.Accordion {
+	margin-bottom: 0.8em;
+	&:nth-of-type(9n + 1) &__summary {
+		background-color: #d70060;
+	}
+	&:nth-of-type(9n + 2) &__summary {
+		background-color: #e54028;
+	}
+	&:nth-of-type(9n + 3) &__summary {
+		background-color: #f18d05;
+	}
+	&:nth-of-type(9n + 4) &__summary {
+		background-color: #f2bc06;
+	}
+	&:nth-of-type(9n + 5) &__summary {
+		background-color: #5eb11c;
+	}
+	&:nth-of-type(9n + 6) &__summary {
+		background-color: #3a7634;
+	}
+	&:nth-of-type(9n + 7) &__summary {
+		background-color: #0abebe;
+	}
+	&:nth-of-type(9n + 8) &__summary {
+		background-color: #00a1cb;
+	}
+	&:nth-of-type(9n + 9) &__summary {
+		background-color: #115793;
+	}
+	&__summary {
+		list-style: none;
+		border-radius: 7px;
+		border: 2px solid transparent;
+		outline: none;
+		cursor: pointer;
+		&:hover {
+			box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.25);
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			border: 2px solid var(--secondary);
+		}
+	}
+	&__summary::-webkit-details-marker {
+		display: none;
+	}
+	&__title {
+		margin: 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 1em;
+		color: white;
+		font-weight: 500;
+		height: 45px;
+	}
+	&__bullets {
+		width: 32px;
+		height: 32px;
+		fill: white;
+	}
+	&__content {
+		padding: 0.8em 0 0;
+	}
 }

@@ -1,21 +1,21 @@
 @import "../variables.scss";
 
-.SampleView{
-    margin-bottom: 1em;
-    &__header{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        height: 2.5em;
-    }
-    &__title{
-        margin: 0;
-        font-size: 1em;
-        color: var(--secondary);
-    }
-    &__link{
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 300;
-    }
+.SampleView {
+	margin-bottom: 1em;
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		height: 2.5em;
+	}
+	&__title {
+		margin: 0;
+		font-size: 1em;
+		color: var(--secondary);
+	}
+	&__link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 300;
+	}
 }

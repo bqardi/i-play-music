@@ -1,60 +1,60 @@
 @import "../variables.scss";
 
-.MainHeader{
-    $sideSpace: 1em;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: $headerHeight;
-    padding: 0 $sideSpace;
-    background-color: var(--light);
-    &__title{
-        margin: 0;
-        font-size: 1em;
-        text-transform: uppercase;
-        font-weight: 300;
-        letter-spacing: 3px;
-    }
-    &--transparent{
-        background-color: transparent;
-    }
-    &__clicker{
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: $sideSpace;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
-        background-color: transparentize(lighten($primary, 20), .75);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity .3s, visibility .3s;
-        &.js-display{
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-    &__clicker.js-display &__input{
-        left: 0;
-        transition-delay: .3s;
-    }
-    &__input{
-        position: relative;
-        width: calc(100% - #{$sideSpace * 2} - #{$headerHeight / 3});
-        left: 150%;
-        height: $headerHeight / 1.8;
-        background-color: rgba(255, 255, 255, 0.7);
-        border: none;
-        border-bottom: 2px solid var(--primary);
-        color: #341931;
-        padding: 0 1em;
-        font-size: 1.25em;
-        transition: left .3s;
-    }
+.MainHeader {
+	$sideSpace: 1em;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: $headerHeight;
+	padding: 0 $sideSpace;
+	background-color: var(--light);
+	&__title {
+		margin: 0;
+		font-size: 1em;
+		text-transform: uppercase;
+		font-weight: 300;
+		letter-spacing: 3px;
+	}
+	&--transparent {
+		background-color: transparent;
+	}
+	&__clicker {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: $sideSpace;
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+		background-color: transparentize(lighten($primary, 20), 0.75);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s, visibility 0.3s;
+		&.js-display {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	&__clicker.js-display &__input {
+		left: 0;
+		transition-delay: 0.3s;
+	}
+	&__input {
+		position: relative;
+		width: calc(100% - #{$sideSpace * 2} - #{$headerHeight / 3});
+		left: 150%;
+		height: $headerHeight / 1.8;
+		background-color: rgba(255, 255, 255, 0.7);
+		border: none;
+		border-bottom: 2px solid var(--primary);
+		color: #341931;
+		padding: 0 1em;
+		font-size: 1.25em;
+		transition: left 0.3s;
+	}
 }

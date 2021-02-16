@@ -1,13 +1,13 @@
 @import "../variables.scss";
 
-.MainTitle{
-    margin: 0 0 0.6em;
-    font-size: 2em;
-    &--gradient{
-        background-image: $gradient;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        display: inline-block;
-    }
+.MainTitle {
+	margin: 0 0 0.6em;
+	font-size: 2em;
+	&--gradient {
+		background-image: $gradient;
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		display: inline-block;
+	}
 }

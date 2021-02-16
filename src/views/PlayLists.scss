@@ -1,85 +1,109 @@
 @import "../variables.scss";
 
-.PlayLists{
-    $imageHeight: 320px;
-    $buttonHeight: 100px;
-    color: white;
-    &__image{
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        width: 100%;
-        height: $imageHeight;
-        margin-bottom: 1em;
-    }
-    &__title{
-        color: black;
-        margin: 0 auto;
-        text-align: center;
-    }
-    &__songs{
-        position: absolute;
-        top: $imageHeight + 74px;
-        left: 0;
-        right: 0;
-        bottom: $mainNavHeight + $buttonHeight;
-        padding: 0 $mainPadding;
-        overflow-y: auto;
-    }
-    &__card{
-        margin-bottom: 1em;
-    }
-    &__listen{
-        position: fixed;
-        left: 0;
-        bottom: $mainNavHeight;
-        width: 100%;
-        height: $buttonHeight;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    &__button{
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        color: $primary;
-        border: 2px solid $primary;
-        border-radius: $buttonHeight / 2;
-        font-size: 0.9em;
-        width: 80%;
-        max-width: 360px;
-        height: 42%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition-property: background-color, box-shadow, border-color, transform;
-        transition-duration: .15s;
-        &:hover{
-            transform: scale(1.01, 1.02);
-            animation-name: neon;
-            animation-duration: .3s;
-            animation-fill-mode: forwards;
-        }
-        @keyframes neon {
-            0%{border-color: $primary;box-shadow: none;background-color: transparent;}
-            20%{border-color: lighten($primary, 50);box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), .5);background-color: transparentize($primary, .9);}
-            35%{border-color: $primary;box-shadow: none;background-color: transparent;}
-            50%{border-color: lighten($primary, 50);box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), .5);background-color: transparentize($primary, .9);}
-            60%{border-color: $primary;box-shadow: none;background-color: transparent;}
-            100%{border-color: lighten($primary, 50);box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), .5);background-color: transparentize($primary, .9);}
-        }
-    }
-    @media only screen and (max-height: 750px) {
-        &__songs{
-            position: static;
-            padding: 2em 0 0;
-        }
-        &__listen{
-            position: static;
-            margin-bottom: $mainNavHeight + 20px;
-        }
-    }
+.PlayLists {
+	$imageHeight: 320px;
+	$buttonHeight: 100px;
+	color: white;
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: -1;
+		width: 100%;
+		height: $imageHeight;
+		margin-bottom: 1em;
+	}
+	&__title {
+		color: black;
+		margin: 0 auto;
+		text-align: center;
+	}
+	&__songs {
+		position: absolute;
+		top: $imageHeight + 74px;
+		left: 0;
+		right: 0;
+		bottom: $mainNavHeight + $buttonHeight;
+		padding: 0 $mainPadding;
+		overflow-y: auto;
+	}
+	&__card {
+		margin-bottom: 1em;
+	}
+	&__listen {
+		position: fixed;
+		left: 0;
+		bottom: $mainNavHeight;
+		width: 100%;
+		height: $buttonHeight;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__button {
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		color: $primary;
+		border: 2px solid $primary;
+		border-radius: $buttonHeight / 2;
+		font-size: 0.9em;
+		width: 80%;
+		max-width: 360px;
+		height: 42%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition-property: background-color, box-shadow, border-color, transform;
+		transition-duration: 0.15s;
+		&:hover {
+			transform: scale(1.01, 1.02);
+			animation-name: neon;
+			animation-duration: 0.3s;
+			animation-fill-mode: forwards;
+		}
+		@keyframes neon {
+			0% {
+				border-color: $primary;
+				box-shadow: none;
+				background-color: transparent;
+			}
+			20% {
+				border-color: lighten($primary, 50);
+				box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), 0.5);
+				background-color: transparentize($primary, 0.9);
+			}
+			35% {
+				border-color: $primary;
+				box-shadow: none;
+				background-color: transparent;
+			}
+			50% {
+				border-color: lighten($primary, 50);
+				box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), 0.5);
+				background-color: transparentize($primary, 0.9);
+			}
+			60% {
+				border-color: $primary;
+				box-shadow: none;
+				background-color: transparent;
+			}
+			100% {
+				border-color: lighten($primary, 50);
+				box-shadow: 0 0 30px 2px transparentize(lighten($primary, 10), 0.5);
+				background-color: transparentize($primary, 0.9);
+			}
+		}
+	}
+	@media only screen and (max-height: 750px) {
+		&__songs {
+			position: static;
+			padding: 2em 0 0;
+		}
+		&__listen {
+			position: static;
+			margin-bottom: $mainNavHeight + 20px;
+		}
+	}
 }
