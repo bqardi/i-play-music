@@ -24,7 +24,8 @@ function AlbumDisplay({ type, id }) {
 	);
 
 	return (
-		<article className="AlbumDisplay">wirks it?
+		<article className="AlbumDisplay">
+			wirks it?
 			<MainHeader title={content.name} transparent style={{ color: content.primary_color }} />
 			<img className="AlbumDisplay__image" src={content.images && content.images[0].url} alt={content.name} />
 			<div className="AlbumDisplay__content" style={{ color: content.primary_color }}>
