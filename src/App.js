@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Router } from "@reach/router";
+import {Router} from "@reach/router";
 import MainContent from "./components/MainContent";
 import MainNavBar from "./components/MainNav";
 import { TokenContext } from "./TokenContext";
