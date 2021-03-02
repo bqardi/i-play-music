@@ -1,67 +1,75 @@
 @import "../variables.scss";
 
-.Player{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 0;
-    &__image{
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        &Outer{
-            border-radius: 50%;
-            padding: 1.6em;
-            background-color: hsla(338, 100%, 53%, 0.25);
-            animation: outer 1.5s ease-in-out alternate infinite;
-        }
-        &Inner{
-            border-radius: 50%;
-            padding: 1.5em;
-            background-color: hsla(338, 100%, 53%, 0.25);
-            animation: inner 1.5s ease-in-out alternate infinite;
-            animation-delay: 1s;
-        }
-        &Img{
-            width: 224px;
-            height: 224px;
-            display: block;
-            border-radius: 50%;
-            box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
-        }
-        @keyframes outer {
-            0% {padding: 0.5em;}
-            100% {padding: 1.6em;}
-        }
-        @keyframes inner {
-            0% {padding: 0.5em;}
-            100% {padding: 1.6em;}
-        }
-        @media only screen and (max-height: 570px) {
-            &Img{
-                width: 160px;
-                height: 160px;
-            }
-        }
-    }
-    &__title{
-        margin: 0;
-        font-size: 1.4em;
-        padding: 0 0.8em;
-    }
-    &__artist{
-        margin: 0.8em 0;
-        font-size: 0.9em;
-        font-weight: 300;
-        padding: 0 0.8em;
-    }
+.Player {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 0;
+	&__image {
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+		&Outer {
+			border-radius: 50%;
+			padding: 1.6em;
+			background-color: hsla(338, 100%, 53%, 0.25);
+			animation: outer 1.5s ease-in-out alternate infinite;
+		}
+		&Inner {
+			border-radius: 50%;
+			padding: 1.5em;
+			background-color: hsla(338, 100%, 53%, 0.25);
+			animation: inner 1.5s ease-in-out alternate infinite;
+			animation-delay: 1s;
+		}
+		&Img {
+			width: 224px;
+			height: 224px;
+			display: block;
+			border-radius: 50%;
+			box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
+		}
+		@keyframes outer {
+			0% {
+				padding: 0.5em;
+			}
+			100% {
+				padding: 1.6em;
+			}
+		}
+		@keyframes inner {
+			0% {
+				padding: 0.5em;
+			}
+			100% {
+				padding: 1.6em;
+			}
+		}
+		@media only screen and (max-height: 570px) {
+			&Img {
+				width: 160px;
+				height: 160px;
+			}
+		}
+	}
+	&__title {
+		margin: 0;
+		font-size: 1.4em;
+		padding: 0 0.8em;
+	}
+	&__artist {
+		margin: 0.8em 0;
+		font-size: 0.9em;
+		font-weight: 300;
+		padding: 0 0.8em;
+	}
 }

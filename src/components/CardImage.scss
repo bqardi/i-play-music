@@ -1,20 +1,20 @@
-.CardImage{
-    display: block;
-    border-radius: 9px;
-    overflow: hidden;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.35);
-    width: 100%;
-    height: 100%;
-    border: none;
-    padding: 0;
-    &--pointer{
-        cursor: pointer;
-    }
-    &__image{
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 50% 0;
-    }
+.CardImage {
+	display: block;
+	border-radius: 9px;
+	overflow: hidden;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.35);
+	width: 100%;
+	height: 100%;
+	border: none;
+	padding: 0;
+	&--pointer {
+		cursor: pointer;
+	}
+	&__image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 0;
+	}
 }

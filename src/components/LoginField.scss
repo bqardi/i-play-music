@@ -1,48 +1,49 @@
 @import "../variables.scss";
 
-.LoginField{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2em;
-    font-weight: 700;
-    &__errMsg{
-        position: absolute;
-        top: -2.3em;
-        right: 0;
-        width: 80%;
-        padding: 0.75em 1em;
-        color: white;
-        background-color: #e61b0d;
-        border-radius: 5px;
-        font-size: 0.9em;
-        box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.3);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity .3s, visibility .3s;
-        &.js-display{
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-    &__input{
-        margin-top: 0.5em;
-        padding: 1.2em 0;
-        border: none;
-        border-bottom: 3px solid var(--secondary);
-        outline: none;
-        background-color: transparent;
-        color: var(--secondary);
-    }
-    &__input:focus, &__input:active{
-        border-bottom: 3px solid $primary;
-    }
-    &__icon{
-        position: absolute;
-        bottom: 16px;
-        right: 0;
-        width: 24px;
-        height: 24px;
-        fill: var(--secondary);
-    }
+.LoginField {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2em;
+	font-weight: 700;
+	&__errMsg {
+		position: absolute;
+		top: -2.3em;
+		right: 0;
+		width: 80%;
+		padding: 0.75em 1em;
+		color: white;
+		background-color: #e61b0d;
+		border-radius: 5px;
+		font-size: 0.9em;
+		box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.3);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s, visibility 0.3s;
+		&.js-display {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	&__input {
+		margin-top: 0.5em;
+		padding: 1.2em 0;
+		border: none;
+		border-bottom: 3px solid var(--secondary);
+		outline: none;
+		background-color: transparent;
+		color: var(--secondary);
+	}
+	&__input:focus,
+	&__input:active {
+		border-bottom: 3px solid $primary;
+	}
+	&__icon {
+		position: absolute;
+		bottom: 16px;
+		right: 0;
+		width: 24px;
+		height: 24px;
+		fill: var(--secondary);
+	}
 }

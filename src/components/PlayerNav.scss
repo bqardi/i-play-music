@@ -1,95 +1,95 @@
 @import "../variables.scss";
 
-.PlayerNav{
-    width: 100%;
-    padding: 1em;
-    box-sizing: border-box;
-    &__slider{
-        appearance: none;
-        width: 100%;
-        background-color: $primary;
-        height: 5px;
-        outline: none;
-        transition: background-color .3s;
-        &:hover{
-            background-color: transparentize($primary, .25);
-        }
-        &::-webkit-slider-thumb {
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            background-color: $primary;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 6px solid transparentize($primary, .6);
-            background-clip: padding-box;
-            transition: border-color .5s;
-            &:hover{
-                border-color: transparentize($primary, .2);
-            }
-        }
-        &::-moz-range-thumb {
-            appearance: none;
-            width: 13px;
-            height: 13px;
-            background-color: $primary;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 6px solid transparentize($primary, .6);
-            background-clip: padding-box;
-            transition: border-color .5s;
-            &:hover{
-                border-color: transparentize($primary, .2);
-            }
-        }
-    }
-    &__durations{
-        display: flex;
-        justify-content: space-between;
-    }
-    &__durationText{
-        margin: 0.5em 0 0;
-        font-size: 0.9em;
-        font-weight: 300;
-    }
-    &__navigation{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1em;
-    }
-    &__button{
-        width:56px;
-        height:56px;
-        padding: 1em;
-        background-color: transparent;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background-color .2s;
-        &--large{
-            width: 96px;
-            height: 96px;
-            padding: 0;
-        }
-        &:hover{
-            background-color: transparentize($primary, .75);
-        }
-    }
-    &__icon{
-        fill: white;
-    }
-    @media only screen and (max-width: 400px) {
-        &__navigation{
-            padding: 0;
-        }
-        &__button{
-            width:48px;
-            height:48px;
-            &--large{
-                width: 80px;
-                height: 80px;
-            }
-        }
-    }
+.PlayerNav {
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+	&__slider {
+		appearance: none;
+		width: 100%;
+		background-color: $primary;
+		height: 5px;
+		outline: none;
+		transition: background-color 0.3s;
+		&:hover {
+			background-color: transparentize($primary, 0.25);
+		}
+		&::-webkit-slider-thumb {
+			appearance: none;
+			width: 25px;
+			height: 25px;
+			background-color: $primary;
+			border-radius: 50%;
+			cursor: pointer;
+			border: 6px solid transparentize($primary, 0.6);
+			background-clip: padding-box;
+			transition: border-color 0.5s;
+			&:hover {
+				border-color: transparentize($primary, 0.2);
+			}
+		}
+		&::-moz-range-thumb {
+			appearance: none;
+			width: 13px;
+			height: 13px;
+			background-color: $primary;
+			border-radius: 50%;
+			cursor: pointer;
+			border: 6px solid transparentize($primary, 0.6);
+			background-clip: padding-box;
+			transition: border-color 0.5s;
+			&:hover {
+				border-color: transparentize($primary, 0.2);
+			}
+		}
+	}
+	&__durations {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__durationText {
+		margin: 0.5em 0 0;
+		font-size: 0.9em;
+		font-weight: 300;
+	}
+	&__navigation {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 1em;
+	}
+	&__button {
+		width: 56px;
+		height: 56px;
+		padding: 1em;
+		background-color: transparent;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: background-color 0.2s;
+		&--large {
+			width: 96px;
+			height: 96px;
+			padding: 0;
+		}
+		&:hover {
+			background-color: transparentize($primary, 0.75);
+		}
+	}
+	&__icon {
+		fill: white;
+	}
+	@media only screen and (max-width: 400px) {
+		&__navigation {
+			padding: 0;
+		}
+		&__button {
+			width: 48px;
+			height: 48px;
+			&--large {
+				width: 80px;
+				height: 80px;
+			}
+		}
+	}
 }

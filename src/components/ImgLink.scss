@@ -1,37 +1,37 @@
 @import "../variables.scss";
 
-.ImgLink{
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 50%;
-    background-color: transparent;
-    transition: filter .3s;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
-    &:hover{
-        filter: saturate(0) brightness(var(--bright));
-    }
-    &--large:hover &__icon{
-        filter: brightness(var(--bright));
-    }
-    &__icon{
-        width: 24px;
-        height: 24px;
-    }
-    &--large{
-        background-image: $gradient;
-    }
-    &--large &__icon{
-        width: 32px;
-        height: 32px;
-        filter: brightness(var(--bright));
-    }
-    &--invert &__icon{
-        filter: brightness(var(--invert));
-    }
+.ImgLink {
+	width: 48px;
+	height: 48px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	border-radius: 50%;
+	background-color: transparent;
+	transition: filter 0.3s;
+	outline: none;
+	padding: 0;
+	cursor: pointer;
+	&:hover {
+		filter: saturate(0) brightness(var(--bright));
+	}
+	&--large:hover &__icon {
+		filter: brightness(var(--bright));
+	}
+	&__icon {
+		width: 24px;
+		height: 24px;
+	}
+	&--large {
+		background-image: $gradient;
+	}
+	&--large &__icon {
+		width: 32px;
+		height: 32px;
+		filter: brightness(var(--bright));
+	}
+	&--invert &__icon {
+		filter: brightness(var(--invert));
+	}
 }
