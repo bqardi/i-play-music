@@ -38,11 +38,11 @@ function Accordion({ title, color, id }) {
 				</h4>
 			</summary>
 			{/* <Sentry.ErrorBoundary fallback={"My forced error has occurred"}> */}
-				<div className="Accordion__content">
-					{content.playlists?.items.map(item => (
-						<ChevronLink key={item.id} to={`/playlists/${item.id}`} title={item.name} count={item.tracks.total} />
-					))}
-				</div>
+			<div className="Accordion__content">
+				{content.playlists?.items.map(item => (
+					<ChevronLink key={item.id} to={`/playlists/${item.id}`} title={item.name} count={item.tracks.total} />
+				))}
+			</div>
 			{/* </Sentry.ErrorBoundary> */}
 		</details>
 	);
