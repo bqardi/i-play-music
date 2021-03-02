@@ -4,11 +4,11 @@ import MainContent from "./components/MainContent";
 import MainNavBar from "./components/MainNav";
 import { TokenContext } from "./TokenContext";
 import DarkmodeContext from "./DarkmodeContext";
-import * as Sentry from "@sentry/react";
+// import * as Sentry from "@sentry/react";
 
-Sentry.init({
-	dsn: "https://1d4a401ec067412699d127c3edfdedee@o539726.ingest.sentry.io/5657513"
-});
+// Sentry.init({
+// 	dsn: "https://examplePublicKey@o0.ingest.sentry.io/0"
+// });
 
 function App() {
 	var tokenState = useState(null);
