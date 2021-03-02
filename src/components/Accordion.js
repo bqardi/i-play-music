@@ -3,6 +3,7 @@ import { TokenContext } from "../TokenContext";
 import ChevronLink from "./ChevronLink";
 import "./Accordion.scss";
 import helpers from "../helpers";
+import * as Sentry from "@sentry/react";
 
 function Accordion({ title, color, id }) {
 	var [token, setToken] = useContext(TokenContext);
@@ -36,11 +37,13 @@ function Accordion({ title, color, id }) {
 					</svg>
 				</h4>
 			</summary>
-			<div className="Accordion__content">
-				{content.playlists?.items.map(item => (
-					<ChevronLink key={item.id} to={`/playlists/${item.id}`} title={item.name} count={item.tracks.total} />
-				))}
-			</div>
+			<Sentry.ErrorBoundary fallback={"My forced error has occurred"}>
+				<div className="Accordion__content">
+					{content.playlists?.items.map(item => (
+						<ChevronLink key={item.id} to={`/playlists/${item.id}`} title={item.name} count={item.tracks.total} />
+					))}
+				</div>
+			</Sentry.ErrorBoundary>
 		</details>
 	);
 }

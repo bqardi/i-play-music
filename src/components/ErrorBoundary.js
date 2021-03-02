@@ -1,43 +1,47 @@
-import { Link, Redirect } from "@reach/router";
+import axios from "axios";
 import { Component } from "react";
+import "./ErrorBoundary.scss";
+import MainTitle from "./MainTitle";
 
 class ErrorBoundary extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			hasError: false,
-			redirect: false
-		};
+		this.state = { hasError: false };
 	}
-	static getDerivedStateFromError() {
-		return { hasError: true };
+
+	static getDerivedStateFromError(error) {
+		return { hasError: true, error };
 	}
+
 	componentDidCatch(error, info) {
-		console.error("ErrorBoundary caught an error", error, info);
+		axios.post("/.netlify/functions/error-logging", {
+			error,
+			info
+		});
+		// .then(response => console.log(response));
+		// console.error("My private error:", this.state.error);
 	}
-	componentDidUpdate() {
-		if (this.state.hasError) {
-			setTimeout(() => {
-				this.setState({ redirect: true });
-				this.render();
-			}, 5000);
-		}
-	}
+
 	render() {
-		if (this.state.redirect) {
-			return <Redirect to="/featured" />;
-		}
 		if (this.state.hasError) {
 			return (
-				<>
-					<h1>Oops, there was an error</h1>
-					<p>Something went wrong, please try again later.</p>
-					<p>
-						<Link to="/featured">Click here</Link> or wait 5 seconds to be redirected.
-					</p>
-				</>
+				<section className="ErrorBoundary">
+					<MainTitle title="Whooops!!!" gradient />
+					<p>Something went wrong!</p>
+					<p className="ErrorBoundary__message">{this.props.errorMessage}</p>
+					<small>
+						If this error message persists, please contact our administrator at{" "}
+						<a href="mailto:admin@email.com">admin@email.com</a> with the subject: 'Error' and the following error
+						described in the body (just copy/paste):
+					</small>
+					<div className="ErrorBoundary__error">
+						<div className="ErrorBoundary__errorMessage">{this.state.error.message}</div>
+						<div className="ErrorBoundary__errorStack">{this.state.error.stack}</div>
+					</div>
+				</section>
 			);
 		}
+
 		return this.props.children;
 	}
 }

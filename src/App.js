@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import {Router} from "@reach/router";
+import { Router } from "@reach/router";
 import MainContent from "./components/MainContent";
 import MainNavBar from "./components/MainNav";
 import { TokenContext } from "./TokenContext";
 import DarkmodeContext from "./DarkmodeContext";
-// import ErrorBoundary from "./components/ErrorBoundary";
+import * as Sentry from "@sentry/react";
+
+Sentry.init({
+	dsn: "https://1d4a401ec067412699d127c3edfdedee@o539726.ingest.sentry.io/5657513"
+});
 
 function App() {
 	var tokenState = useState(null);
@@ -17,7 +21,6 @@ function App() {
 	}, [setDarkmode]);
 
 	return (
-		// <ErrorBoundary>
 		<TokenContext.Provider value={tokenState}>
 			<DarkmodeContext.Provider value={darkmodeState}>
 				{(function () {
@@ -52,7 +55,6 @@ function App() {
 				</Router>
 			</DarkmodeContext.Provider>
 		</TokenContext.Provider>
-		// </ErrorBoundary>
 	);
 }
 
