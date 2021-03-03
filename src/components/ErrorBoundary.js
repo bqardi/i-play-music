@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { Component } from "react";
 import "./ErrorBoundary.scss";
 import MainTitle from "./MainTitle";
@@ -14,12 +14,12 @@ class ErrorBoundary extends Component {
 	}
 
 	componentDidCatch(error, info) {
-		axios.post("/.netlify/functions/error-logging", {
-			error,
-			info
-		});
+		// axios.post("/.netlify/functions/error-logging", {
+		// 	error,
+		// 	info
+		// });
 		// .then(response => console.log(response));
-		// console.error("My private error:", this.state.error);
+		console.error("My private error:", this.state.error);
 	}
 
 	render() {
