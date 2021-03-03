@@ -4,7 +4,7 @@ exports.handler = async function (event, context) {
 	if (event.httpMethod !== "POST") return { statusCode: 405, body: "" };
 
 	var body = JSON.parse(event.body);
-
+console.log(process.env.REDIRECT_URI)
 	var authOptions = {
 		url: "https://accounts.spotify.com/api/token",
 		method: "POST",
@@ -27,7 +27,7 @@ exports.handler = async function (event, context) {
 			body: JSON.stringify(response.data)
 		};
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
 		return {
 			statusCode: 500,
 			body: "internal server error"
