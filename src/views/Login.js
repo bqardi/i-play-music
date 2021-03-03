@@ -72,8 +72,8 @@ function Login({ validate }) {
 		response_type: "code",
 		client_id: "7c2201d7ecde48bfa743a10b37b75c18",
 		scope: "user-read-private user-read-email",
-		redirect_uri: "http://localhost:8888/callback",
-		// redirect_uri: "https://bqardi-iplaymusic.netlify.app/callback",
+		// redirect_uri: "http://localhost:8888/callback",
+		redirect_uri: "https://bqardi-iplaymusic.netlify.app/callback",
 		state: "vdjldfglfdlgrpoiaer9garlogihlgkzhdrlgishlro8tubzpdortuzorihglzdoighlzoirhtlzo8ghldhglzdghlzdoigh"
 	});
 
