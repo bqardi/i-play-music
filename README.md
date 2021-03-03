@@ -5,7 +5,7 @@ This project is hosted on [Netlify](https://www.netlify.com/) and here is the di
 [iPlayMusic](https://bqardi-iplaymusic.netlify.app/)
 
 Once there, you will be presented with a login screen.
-Just punch in whatever you want, there is just a veeery basic validation going on here, where you must enter at least **two** characters in the *username* field and **four** in the *password* field.
+Just punch in whatever you want, there is just a veeery basic validation going on here, where you must enter at least **two** characters in the _username_ field and **four** in the _password_ field.
 
 Or, you can simply press the One touch icon to bypass the login completely.
 
