@@ -12,7 +12,7 @@ import DarkmodeContext from "./DarkmodeContext";
 
 function App() {
 	var tokenState = useState(null);
-	var [darkmode, setDarkmode] = useState(true);
+	var [darkmode, setDarkmode] = useState(false);
 
 	useEffect(() => {
 		var localDarkmode = localStorage.getItem("darkmode");
