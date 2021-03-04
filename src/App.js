@@ -12,27 +12,30 @@ import DarkmodeContext from "./DarkmodeContext";
 
 function App() {
 	var tokenState = useState(null);
-	var darkmodeState = useState(true);
-	var [darkmode, setDarkmode] = darkmodeState;
+	var [darkmode, setDarkmode] = useState(true);
 
 	useEffect(() => {
-		var isDarkmode = localStorage.getItem("darkmode") === "true";
-		setDarkmode(isDarkmode);
-	}, [setDarkmode]);
+		var localDarkmode = localStorage.getItem("darkmode");
+		if (darkmode && localDarkmode === null) {
+			localStorage.setItem("darkmode", "true");
+		} else {
+			setDarkmode(localDarkmode === "true");
+		}
+	}, [darkmode]);
 
 	return (
 		<TokenContext.Provider value={tokenState}>
-			<DarkmodeContext.Provider value={darkmodeState}>
+			<DarkmodeContext.Provider value={[darkmode, setDarkmode]}>
 				{(function () {
 					if (darkmode) {
 						return (
 							<style>
 								{`:root {
-                                    --primary: #ff1168;
-                                    --secondary: white;
-                                    --additional: #111625;
-                                    --light: #341931;
-                                }`}
+									--primary: #ff1168;
+									--secondary: white;
+									--additional: #111625;
+									--light: #341931;
+								}`}
 							</style>
 						);
 					}
