@@ -1,5 +1,7 @@
 # iPlayMusic React app
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b67fa151-72ac-4857-b5d2-ea5c9cbfe78f/deploy-status)](https://app.netlify.com/sites/bqardi-iplaymusic/deploys)
+
 This project is hosted on [Netlify](https://www.netlify.com/) and here is the direct link to my online app:
 
 [iPlayMusic](https://bqardi-iplaymusic.netlify.app/)
